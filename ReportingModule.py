@@ -18,7 +18,7 @@ class reportingModule:
     
     def trashMan(self): # deletes any tuples(Frames) that are irrelevent   
         for i in range(len(self.results)):
-            # checks accuracy of bug and deletes any tuples that have less 60% accuracy 
+            # thow out guesses not the frame
             if self.results[i]["accuracy"] < 60: 
                 del self.results[i]
             # checks to see if any bugs were detected on screen 
@@ -26,6 +26,7 @@ class reportingModule:
                 del self.results[i]
             
 def main():
+    # classification = classify()   toHTML(classification)
     test = [(4, 92, 3),(5,50,3),(6,82,3),(0,0,0)]
     report = reportingModule(test)
     report.trashMan()
